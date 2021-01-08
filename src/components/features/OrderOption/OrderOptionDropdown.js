@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-const OrderOptionDropdown = ({name}) => (
+const OrderOptionDropdown = () => (
 
-  <div>{name}</div>
+  <div>OrderOptionDropdown</div>
 );
 
 OrderOptionDropdown.propTypes = {

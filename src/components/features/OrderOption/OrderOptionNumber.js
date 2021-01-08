@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-const OrderOptionNumber = ({name}) => (
+const OrderOptionNumber = () => (
 
-  <div>{name}</div>
+  <div>OrderOptionNumber</div>
 );
 
 OrderOptionNumber.propTypes = {
