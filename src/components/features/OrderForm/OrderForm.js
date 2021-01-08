@@ -9,13 +9,11 @@ import OrderOption from '../OrderOption/OrderOption';
 const OrderForm = ({tripCost, options, setOrderOption}) => (
 
   <Row>
-    <div>
-      {pricing.map(option => (
-        <Col md={12} key={option.id}>
-          <OrderOption  currentValue={options[option.id]} setOrderOption={setOrderOption} {...option} />
-        </Col>
-      ))}
-    </div>
+    {pricing.map(option => (
+      <Col md={4} key={option.id}>
+        <OrderOption  currentValue={options[option.id]} setOrderOption={setOrderOption} {...option} />
+      </Col>
+    ))}
     <Col xs={12}>
       <OrderSummary tripCost={tripCost} options={options}/>
     </Col>
