@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './OrderOption.scss';
-import Icon from '../../Icon/Icon';
+import Icon from '../../Common/Icon/Icon';
 import {formatPrice} from '../../../utils/formatPrice';
 
 const OrderOptionIcons = ({required, currentValue, values, setOptionValue}) => (
@@ -10,6 +10,7 @@ const OrderOptionIcons = ({required, currentValue, values, setOptionValue}) => (
     {required ? '' : (
       <div
         className={styles.icon}
+        value=''
         onClick={() => setOptionValue('')}
       >
         <Icon name="times-circle">
