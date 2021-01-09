@@ -6,13 +6,20 @@ import styles from './OrderOption.scss';
 
 const OrderOptionDate = () => {
 
-  const [startDate, setStartDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(null);
 
   return (
     <DatePicker
+      type="date"
       className={styles.input}
       selected={startDate}
       onChange={date => setStartDate(date)}
+      isClearable
+      placeholderText="dd/mm/yyyy"
+      dateFormat="dd/MM/yyyy"
+      minDate={new Date()}
+      showDisabledMonthNavigation
+      withPortal
     />
   );
 };
