@@ -61,7 +61,7 @@
   },
   {
     "id": "contact",
-    "name": "Contact info (phone, email, etc.)",
+    "name": "Contact (phone, email, etc.)",
     "type": "text"
   },
   {
