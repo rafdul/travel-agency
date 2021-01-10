@@ -59,6 +59,9 @@ const Trip = ({error, name, image, cost, days, description, country, intro}) => 
       <Grid>
         <PageTitle text={`About ${country.name}`} />
       </Grid>
+      {/* <Grid>
+        <PageTitle text={country.region} />
+      </Grid> */}
       <DetailsBox>
         <DetailsImage>
           <SideImage source={country.flag} />
@@ -70,6 +73,8 @@ const Trip = ({error, name, image, cost, days, description, country, intro}) => 
                 <ListItem title={`<strong>Capital:</strong> ${country.capital}`} icon='city' />
                 <ListItem title={`<strong>Population:</strong> ${country.population / 1000000} millions`} icon='users' />
                 <ListItem title={`<strong>Currency:</strong> ${country.currencies[0].symbol} (${country.currencies[0].name})`} icon='money-bill-wave' />
+                <ListItem title={`<strong>Region:</strong> ${country.region}`} icon='globe' />
+                <ListItem title={`<strong>Subegion:</strong> ${country.subregion}`} icon='map' />
               </List>
             </Col>
           </Row>
