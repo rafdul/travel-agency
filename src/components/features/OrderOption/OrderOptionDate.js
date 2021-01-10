@@ -12,9 +12,8 @@ const OrderOptionDate = ({currentValue, setOptionValue}) => {
       type="date"
       className={styles.input}
       selected={currentValue}
-      value={currentValue}
       onChange={date => setOptionValue(date)}
-      // isClearable
+      isClearable
       placeholderText="dd/mm/yyyy"
       dateFormat="dd/MM/yyyy"
       minDate={new Date()}
