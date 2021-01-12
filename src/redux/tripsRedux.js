@@ -2,7 +2,7 @@
 
 export const getAllTrips = ({trips}) => trips;
 
-export const getFilteredTrips = ({trips, filters/*, regions*/}) => {
+export const getFilteredTrips = ({trips, filters, regions}) => {
   let output = trips;
 
   // filter by search phrase
@@ -26,6 +26,33 @@ export const getFilteredTrips = ({trips, filters/*, regions*/}) => {
     Number(trip2.cost.slice(1).split(',').join('')) -
     Number(trip1.cost.slice(1).split(',').join(''))
   );
+
+  //TODO - filter by region
+  // console.log('filters.regions', filters.regions);
+  // console.log('regions',regions);
+  // console.log('countries', countries);
+
+  if(filters.regions.length >=1){
+    output = output.filter(trip => {
+      for(let regionName of filters.regions) {
+        // console.log('region z filtra:',region);
+        // console.log('regions:',regions);
+        for(let el in regions){
+          if(el == regionName){
+            // console.log('el == region:', el);
+            // console.log('show countries:', regions[el].countries);
+            for(let country of regions[el].countries){
+              // console.log('szukaj dla kraju:', country);
+              if(trip.country.code == country){
+                return trip;
+              }
+            }
+          }
+        }
+      }
+    });
+    // console.log('output', output);
+  }
 
   return output;
 };
