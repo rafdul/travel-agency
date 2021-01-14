@@ -1,7 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import TripSummmary from './TripSummary';
-// import {Link} from 'react-router-dom';
 
 describe('Component TripSummary', () => {
   it('should render correct url', () => {
@@ -49,7 +48,7 @@ describe('Component TripSummary', () => {
 
   it('should not render div, if props tags is false', () => {
     const component = shallow(<TripSummmary tags={[]} id='' image='' name='' cost='' days={1}/>);
-    console.log(component.debug());
+    // console.log(component.debug());
     // expect(component.hasClass('.tags')).toBe(false);
     expect(component.hasClass('.tags')).toBe(false);
   });
