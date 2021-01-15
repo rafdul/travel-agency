@@ -167,7 +167,13 @@ for(let type in optionTypes){
           const inputNumber = renderedSubcomponent.find('input[type="number"]');
           expect(inputNumber.length).toBe(1);
           expect(inputNumber.prop('value')).toBe(mockPropsForType.number.currentValue);
-          // console.log(inputNumber.debug());
+          console.log(inputNumber.debug());
+        });
+
+        it('contains input with min and max limits', () => {
+          const inputNumber = renderedSubcomponent.find('input[type="number"]');
+          expect(inputNumber.prop('min')).toBe(mockProps.limits.min);
+          expect(inputNumber.prop('max')).toBe(mockProps.limits.max);
         });
 
         it('should run setOrderOption function on change', () => {
@@ -179,6 +185,18 @@ for(let type in optionTypes){
       }
 
       case 'text': {
+        it('contains input with class text', () =>{
+          const inputText = renderedSubcomponent.find('input[type="text"]');
+          expect(inputText.length).toBe(1);
+          expect(inputText.prop('value')).toBe(mockProps.currentValue);
+          // console.log(inputText.debug());
+        });
+
+        it('should run setOrderOption function on change', () => {
+          renderedSubcomponent.find('input[type="text"]').simulate('change', {currentTarget: {value: testValue}});
+          expect(mockSetOrderOption).toBeCalledTimes(1);
+          expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: testValue });
+        });
         break;
       }
 
