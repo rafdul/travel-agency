@@ -1,10 +1,22 @@
+// export const formatFinishDate = (date, tripDays) => {
+//   const MILISECUND_IN_DAYS = 86400000;
+//   const theDate = new Date(Date.parse(date) + (tripDays * MILISECUND_IN_DAYS)).toLocaleDateString();
+//   if(theDate == 'Invalid Date') {
+//     return('');
+//   } else {
+//     return theDate;
+//   }
+// };
+
+
+/* parsowanie nie jest konieczne, więc można trochę krócej zapisać */
 export const formatFinishDate = (date, tripDays) => {
-  const theDate = new Date(Date.parse(date) + (tripDays * 86400000)).toLocaleDateString();
-  if(theDate == 'Invalid Date') {
-    return('');
+  if(date) {
+    const newDate = date;
+    newDate.setDate(newDate.getDate() + tripDays);
+    return newDate.toLocaleDateString();
   } else {
-    return theDate;
+    return '';
   }
 };
 
-// tripDays * 86400000 = zamiana długości wycieczki w dniach na milisekundy
