@@ -139,6 +139,23 @@ for(let type in optionTypes){
       }
 
       case 'checkboxes': {
+        it('contains div with class checkboxes', () =>{
+          const divCheckboxes = renderedSubcomponent.find('.checkboxes');
+          expect(divCheckboxes).toBeTruthy();
+          // console.log(divCheckboxes.debug());
+        });
+
+        it('contains inputs type of checkboxes', () =>{
+          const inputsCheckboxes = renderedSubcomponent.find('input[type="checkbox"]');
+          expect(inputsCheckboxes.length).toBe(mockProps.values.length);
+          console.log(inputsCheckboxes.debug());
+        });
+
+        it('should run setOrderOption function on change', () =>{
+          renderedSubcomponent.find(`input[value="${testValue}"]`).simulate('change', {currentTarget: {checked: true}});
+          expect(mockSetOrderOption).toBeCalledTimes(1);
+          expect(mockSetOrderOption).toBeCalledWith({[mockProps.id]: [mockProps.currentValue, testValue]});
+        });
         break;
       }
 
