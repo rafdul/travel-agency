@@ -119,8 +119,8 @@ for(let type in optionTypes){
 
       case 'icons': {
         it('contains div with class icon', () =>{
-          const divIcons = renderedSubcomponent.find('.icon');
-          expect(divIcons.length).toBe(testValueNumber);
+          const divIcons = renderedSubcomponent.find('.icon').not('[value=""]');
+          expect(divIcons.length).toBe(mockProps.values.length);
 
           const activeIcons = renderedSubcomponent.find('.iconActive');
           expect(activeIcons.length).toBe(1);
@@ -148,7 +148,7 @@ for(let type in optionTypes){
         it('contains inputs type of checkboxes', () =>{
           const inputsCheckboxes = renderedSubcomponent.find('input[type="checkbox"]');
           expect(inputsCheckboxes.length).toBe(mockProps.values.length);
-          console.log(inputsCheckboxes.debug());
+          // console.log(inputsCheckboxes.debug());
         });
 
         it('should run setOrderOption function on change', () =>{
@@ -160,6 +160,21 @@ for(let type in optionTypes){
       }
 
       case 'number': {
+        it('contains div with class number and input', () =>{
+          const divNumber= renderedSubcomponent.find('.number');
+          expect(divNumber).toBeTruthy();
+
+          const inputNumber = renderedSubcomponent.find('input[type="number"]');
+          expect(inputNumber.length).toBe(1);
+          expect(inputNumber.prop('value')).toBe(mockPropsForType.number.currentValue);
+          // console.log(inputNumber.debug());
+        });
+
+        it('should run setOrderOption function on change', () => {
+          renderedSubcomponent.find('input[type="number"]').simulate('change', {currentTarget: {value: testValueNumber}});
+          expect(mockSetOrderOption).toBeCalledTimes(1);
+          expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: testValueNumber });
+        });
         break;
       }
 
