@@ -1,6 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import OrderOption from './OrderOption';
+import DatePicker from 'react-datepicker';
 
 /* testy dla komponentu głównego (OrderOption); testy subkomponentów poniżej */
 describe('Component OrderOption', () => {
@@ -167,7 +168,7 @@ for(let type in optionTypes){
           const inputNumber = renderedSubcomponent.find('input[type="number"]');
           expect(inputNumber.length).toBe(1);
           expect(inputNumber.prop('value')).toBe(mockPropsForType.number.currentValue);
-          console.log(inputNumber.debug());
+          // console.log(inputNumber.debug());
         });
 
         it('contains input with min and max limits', () => {
@@ -185,7 +186,7 @@ for(let type in optionTypes){
       }
 
       case 'text': {
-        it('contains input with class text', () =>{
+        it('contains input with class text', () => {
           const inputText = renderedSubcomponent.find('input[type="text"]');
           expect(inputText.length).toBe(1);
           expect(inputText.prop('value')).toBe(mockProps.currentValue);
@@ -201,6 +202,12 @@ for(let type in optionTypes){
       }
 
       case 'date': {
+        it('should run setOrderOption function on change', () => {
+          renderedSubcomponent.find(DatePicker).simulate('change', testValue);
+          expect(mockSetOrderOption).toBeCalledTimes(1);
+          expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: testValue });
+          // console.log(renderedSubcomponent.find('Datepicker').debug());
+        });
         break;
       }
     }
