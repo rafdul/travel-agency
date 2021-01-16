@@ -118,6 +118,75 @@
       "countryCode": "UKR",
       "tripDays": 10,
       "id": 9
+    },
+    {
+      "car-rental": "",
+      "accommodation": "hotel",
+      "features": [],
+      "adults": 1,
+      "children": 0,
+      "name": "rtyu",
+      "contact": "",
+      "start-date": "",
+      "totalCost": "$33,417",
+      "tripName": "Wondrous travel in excellent United States of America",
+      "tripId": "5cc1d1015f3c5f5f14384b15",
+      "countryCode": "USA",
+      "tripDays": 12,
+      "id": 10
+    },
+    {
+      "car-rental": "",
+      "accommodation": "hotel",
+      "features": [],
+      "adults": "3",
+      "children": "2",
+      "name": "pppppooo",
+      "contact": "5555",
+      "start-date": "",
+      "totalCost": "$133,668",
+      "tripName": "Wondrous travel in excellent United States of America",
+      "tripId": "5cc1d1015f3c5f5f14384b15",
+      "countryCode": "USA",
+      "tripDays": 12,
+      "id": 11
+    },
+    {
+      "car-rental": "",
+      "accommodation": "hotel",
+      "features": [],
+      "adults": "6",
+      "children": "6",
+      "name": "eeeeeeeeeeeeeeeeeeee",
+      "contact": "3333333333333333",
+      "start-date": "2021-02-05T23:00:00.000Z",
+      "totalCost": "$300,752",
+      "tripName": "Wondrous travel in excellent United States of America",
+      "tripId": "5cc1d1015f3c5f5f14384b15",
+      "countryCode": "USA",
+      "tripDays": 12,
+      "id": 12
+    },
+    {
+      "car-rental": "full",
+      "accommodation": "suite",
+      "features": [
+        "all-inclusive",
+        "kitchen",
+        "pool",
+        "security"
+      ],
+      "adults": "2",
+      "children": "1",
+      "name": "oplmnjk",
+      "contact": "5050505050",
+      "start-date": "2021-05-07T22:00:00.000Z",
+      "totalCost": "$139,202",
+      "tripName": "Pleasant travel in cool Turkey",
+      "tripId": "5cc1d10130dfa407e2e54e20",
+      "countryCode": "TUR",
+      "tripDays": 7,
+      "id": 13
     }
   ]
 }

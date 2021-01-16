@@ -33,12 +33,17 @@ const sendOrder = (options, tripCost, tripName, tripId, countryCode, tripDays) =
     body: JSON.stringify(payload),
   };
 
-  fetch(url, fetchOptions)
-    .then(function(response){
-      return response.json();
-    }).then(function(parsedResponse){
-      console.log('parsedResponse', parsedResponse);
-    });
+  if(options.name !== '' && options.contact !== '' && options['start-date']) {
+    fetch(url, fetchOptions)
+      .then(function(response){
+        return response.json();
+      })
+      .then(function(parsedResponse){
+        console.log('parsedResponse', parsedResponse);
+      });
+  } else {
+    return alert('Fields: "Name", "Contact" and "Preffered trip start" are necessary!');
+  }
 };
 
 const OrderForm = ({tripCost, options, setOrderOption, tripDays, tripName, tripId, countryCode}) => (
