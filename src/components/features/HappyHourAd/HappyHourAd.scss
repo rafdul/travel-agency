@@ -5,12 +5,17 @@
   padding: ($base-size / 2);
 }
 
-.info-text {
+.title {
   color: $color-dark;
   font-size: ($base-size * 1.2);
 }
 
-.info-hour {
+// .countdown {
+//   color: #4D0C03;
+//   font-size: ($base-size * 1.6);
+// }
+
+.promoDescription {
   color: #4D0C03;
   font-size: ($base-size * 1.6);
 }
