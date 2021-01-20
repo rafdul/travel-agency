@@ -1,0 +1,16 @@
+@import '../../../styles/settings.scss';
+
+.component {
+  text-align: center;
+  padding: ($base-size / 2);
+}
+
+.info-text {
+  color: $color-dark;
+  font-size: ($base-size * 1.2);
+}
+
+.info-hour {
+  color: #4D0C03;
+  font-size: ($base-size * 1.6);
+}
