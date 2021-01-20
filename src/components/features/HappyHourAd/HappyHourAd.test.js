@@ -36,6 +36,7 @@ describe('Component HappyHourAd', () => {
   });
 });
 
+
 /* czy komponent potrafi ustalić na samym początku, ile czasu pozostało do rozpoczęcia promocji */
 const trueDate = Date;
 const mockDate = customDate => class extends Date {
