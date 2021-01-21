@@ -13,37 +13,6 @@ const mockProps = {
   promoDescription: 'Cum sociis natoque penatibus',
 };
 
-/* mockowanie funkcji importowanej z innego pliku */
-/* mock-up funkcji formatTime: zawsze zwróć argument przekazany tej funkcji */
-beforeAll(() => {
-  const utilsModule = jest.requireActual('../../../utils/formatTime.js');
-  utilsModule.formatTime = jest.fn(seconds => seconds);
-});
-
-describe('Component HappyHourAd', () => {
-  it('should render without crashing', () => {
-    const component = shallow(<HappyHourAd />);
-    expect(component).toBeTruthy();
-    // console.log(component.debug());
-  });
-
-  it('should render title and countdown', () => {
-    const component = shallow(<HappyHourAd {...mockProps}/>);
-    expect(component.exists(select.title)).toBe(true);
-    expect(component.exists(select.promoDescription)).toEqual(true);
-    // expect(component.find('h3').hasClass('title')).toEqual(true);
-    // expect(component.find('div').some('.countdown')).toEqual(true);
-    // console.log(component.debug());
-  });
-
-  it('should render correct heading from props', () => {
-    const component = shallow(<HappyHourAd /*{...mockProps}*/ title={mockProps.title} />);
-    expect(component.find(select.title).text()).toEqual(mockProps.title);
-    // console.log(component.debug());
-  });
-});
-
-
 /* czy komponent potrafi ustalić na samym początku, ile czasu pozostało do rozpoczęcia promocji */
 const trueDate = Date;
 const mockDate = customDate => class extends Date {
@@ -109,21 +78,3 @@ describe('Component HappyHourAd with mocked Date and delay', () => {
   checkDescriptionAfterTime('13:00:00', 60*60, 22 * 60 * 60 + '');
 
 });
-
-/* czy komunikat wyświetla informację o promocji przy otwarciu strony */
-describe('Component HappyHourAd with mocked promo description betwen hours 12-1', () => {
-
-  checkDescriptionAtTime('12:00:00', mockProps.promoDescription);
-  checkDescriptionAtTime('12:23:19', mockProps.promoDescription);
-  checkDescriptionAtTime('12:59:59', mockProps.promoDescription);
-});
-
-/* czy komunikat wyświetla informację o promocji, kiedy odliczanie dotarło do zera */
-describe('Component HappyHourAd with mocked Date, delay and promo description', () => {
-
-  checkDescriptionAfterTime('11:59:58', 1, '1');
-  checkDescriptionAfterTime('12:00:00', 1, mockProps.promoDescription);
-  checkDescriptionAfterTime('12:42:12', 1, mockProps.promoDescription);
-
-});
-
