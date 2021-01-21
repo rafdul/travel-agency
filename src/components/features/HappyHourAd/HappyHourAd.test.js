@@ -9,8 +9,8 @@ const select = {
 };
 
 const mockProps = {
-  title: 'Happy Hour Lorem ipsum',
-  description: 'It`s your time! Take advantage of Happy Hour! All offers 20% off!',
+  title: 'title title',
+  description: 'Lorem ipsum...',
 };
 
 describe('Component HappyHourAd', () => {
@@ -30,9 +30,9 @@ describe('Component HappyHourAd', () => {
   });
 
   it('should render correct heading from props', () => {
-    const component = shallow(<HappyHourAd {...mockProps} />);
+    const component = shallow(<HappyHourAd /*{...mockProps}*/ title={mockProps.title} />);
     expect(component.find(select.title).text()).toEqual(mockProps.title);
-    console.log(component.debug());
+    // console.log(component.debug());
   });
 });
 
@@ -62,6 +62,7 @@ const checkDescriptionAtTime = (time, expectedDescription) => {
     expect(renderedTime).toEqual(expectedDescription);
 
     global.Date = trueDate;
+    // console.log(component.debug());
   });
 };
 
@@ -90,6 +91,7 @@ const checkDescriptionAfterTime = (time, delaySeconds, expectedDescription) => {
 
     global.Date = trueDate;
     jest.useRealTimers();
+    // console.log(component.debug());
   });
 };
 
@@ -98,4 +100,5 @@ describe('Component HappyHourAd with mocked Date and delay', () => {
   checkDescriptionAfterTime('11:57:58', 2, '120');
   checkDescriptionAfterTime('11:59:58', 1, '1');
   checkDescriptionAfterTime('13:00:00', 60*60, 22 * 60 * 60 + '');
+
 });
