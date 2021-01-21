@@ -103,10 +103,20 @@ describe('Component HappyHourAd with mocked Date and delay', () => {
 
 });
 
+/* czy komunikat wyświetla informację o promocji przy otwarciu strony */
 describe('Component HappyHourAd with mocked promo description betwen hours 12-1', () => {
 
   checkDescriptionAtTime('12:00:00', mockProps.promoDescription);
   checkDescriptionAtTime('12:23:19', mockProps.promoDescription);
   checkDescriptionAtTime('12:59:59', mockProps.promoDescription);
+});
+
+/* czy komunikat wyświetla informację o promocji, kiedy odliczanie dotarło do zera */
+describe('Component HappyHourAd with mocked Date, delay and promo description', () => {
+
+  checkDescriptionAfterTime('11:59:58', 1, '1');
+  checkDescriptionAfterTime('12:00:00', 1, mockProps.promoDescription);
+  checkDescriptionAfterTime('12:02:12', 1, mockProps.promoDescription);
+
 });
 
