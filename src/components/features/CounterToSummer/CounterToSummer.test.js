@@ -61,14 +61,22 @@ const checkDescriptionAtTime = (date, expectedDescription) => {
     expect(renderedDate).toEqual(expectedDescription);
 
     global.Date = trueDate;
-    console.log(component.debug());
+    // console.log(component.debug());
   });
 };
 
 describe('Component CounterToSummer with mocked Date', () => {
 
-  checkDescriptionAtTime('09.01.2021', '293');
+  checkDescriptionAtTime('09.24.2021', '270');
   checkDescriptionAtTime('12.31.2021', '172');
   checkDescriptionAtTime('01.01.2022', '171');
   checkDescriptionAtTime('06.20.2021', '1');
 });
+
+describe('Component CounterToSummer with mocked Date during summer', () => {
+
+  checkDescriptionAtTime('06.21.2021', '0');
+  checkDescriptionAtTime('08.31.2021', '0');
+  checkDescriptionAtTime('09.23.2021', '0');
+});
+
