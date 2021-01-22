@@ -9,7 +9,19 @@ class CounterToSummer extends React.Component {
   }
 
   static defaultProps = {
-    title: '200 dni do lata!',
+    title: ' days to Summer!',
+  }
+
+  getCountdownTime() {
+    const currentDate = new Date();
+
+    const nextSummer = new Date(Date.UTC(currentDate.getUTCFullYear(), 5, 21, 0, 0, 0, 0));
+
+    if((currentDate.getUTCMonth() == 5 && currentDate.getUTCDate() >= 21) || currentDate.getUTCMonth() >= 6){
+      nextSummer.setUTCFullYear(currentDate.getUTCFullYear()+1);
+    }
+
+    return Math.round((nextSummer - currentDate)/1000/3600/24);
   }
 
   render(){
@@ -17,7 +29,10 @@ class CounterToSummer extends React.Component {
 
     return(
       <div className={styles.component}>
-        <h2 className={styles.info}>{title}</h2>
+        <h2 className={styles.title}>
+          <span className={styles.counter}>{this.getCountdownTime()}</span>
+          <span className={styles.info}>{title}</span>
+        </h2>
       </div>
     );
   }
