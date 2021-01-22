@@ -69,7 +69,7 @@ const checkDescriptionAtTime = (time, expectedDescription) => {
     expect(renderedTime).toEqual(expectedDescription);
 
     global.Date = trueDate;
-    console.log(component.debug());
+    // console.log(component.debug());
   });
 };
 
