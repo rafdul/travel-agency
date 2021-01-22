@@ -10,7 +10,7 @@ const select = {
 
 const mockProps = {
   title: 'title title',
-  promoDescription: 'Cum sociis natoque penatibus',
+  promoDescription: 'Cum sociis natoque penatibus..',
 };
 
 /* mockowanie funkcji importowanej z innego pliku */
