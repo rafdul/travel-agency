@@ -34,7 +34,8 @@ const Trip = ({error, name, image, cost, days, description, country, intro, ...o
               </div>
               <List variant='light'>
                 <ListItem title={`<strong>Duration:</strong> ${days} days`} icon='calendar-alt' />
-                <ListItem title={`<strong>Price:</strong> from ${cost}`} icon='money-bill-wave' />
+                <ListItem id='price_promo' title={`<strong>Promo price:</strong> from ${cost}`} icon='money-bill-wave' />
+                {/* <ListItem id='price_standard' title={`<strong>Standard price:</strong> from ${cost}`} icon='money-bill-wave' /> */}
               </List>
             </Col>
           </Row>
