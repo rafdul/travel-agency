@@ -24,16 +24,16 @@ describe('Component CounterToSummer', () => {
     // console.log(component.debug());
   });
 
-  it('should render title', () => {
-    const component = shallow(<CounterToSummer />);
-    expect(component.exists(select.info)).toBe(true);
-    // console.log(component.debug());
-  });
+  // it('should render title', () => {
+  //   const component = shallow(<CounterToSummer />);
+  //   expect(component.exists(select.info)).toBe(true);
+  //   // console.log(component.debug());
+  // });
 
-  it('should render correct title from props', () => {
-    const component = shallow(<CounterToSummer title={mockProps.title}/>);
-    expect(component.find(select.info).text()).toEqual(mockProps.title);
-  });
+  // it('should render correct title from props', () => {
+  //   const component = shallow(<CounterToSummer title={mockProps.title}/>);
+  //   expect(component.find(select.info).text()).toEqual(mockProps.title);
+  // });
 });
 
 const trueDate = Date;
@@ -67,16 +67,17 @@ const checkDescriptionAtTime = (date, expectedDescription) => {
 
 describe('Component CounterToSummer with mocked Date', () => {
 
-  checkDescriptionAtTime('09.24.2021', '270');
-  checkDescriptionAtTime('12.31.2021', '172');
-  checkDescriptionAtTime('01.01.2022', '171');
-  checkDescriptionAtTime('06.20.2021', '1');
+  checkDescriptionAtTime('09.24.2021', '270 days to summer!');
+  checkDescriptionAtTime('12.31.2021', '172 days to summer!');
+  checkDescriptionAtTime('01.01.2022', '171 days to summer!');
+  checkDescriptionAtTime('06.19.2022', '2 days to summer!');
+  checkDescriptionAtTime('06.20.2021', '1 day to summer!');
 });
 
 describe('Component CounterToSummer with mocked Date during summer', () => {
 
-  checkDescriptionAtTime('06.21.2021', '0');
-  checkDescriptionAtTime('08.31.2021', '0');
-  checkDescriptionAtTime('09.23.2021', '0');
+  checkDescriptionAtTime('06.21.2021', '');
+  checkDescriptionAtTime('08.31.2021', '');
+  checkDescriptionAtTime('09.23.2021', '');
 });
 
