@@ -35,7 +35,7 @@ const Trip = ({error, name, image, cost, days, description, country, intro, ...o
               </div>
               <List variant='light'>
                 <ListItem title={`<strong>Duration:</strong> ${days} days`} icon='calendar-alt' />
-                <ListItem id='price_promo' title={(new Date).getUTCHours() === 12 ?
+                <ListItem id='price_promo' title={(new Date).getUTCHours() === 16 ?
                   (`<strong>Happy-hour-price: from ${promoPrice(cost, 0.5)}</strong><div class=${styles.small}><small>Standard price: from ${cost}</small></div>`)
                   : (`<strong>Standard price: from ${cost}</strong>`)} icon='money-bill-wave' />
                 {/* <ListItem id='price_standard' title={`<strong>Standard price:</strong> from ${cost}`} icon='money-bill-wave' /> */}
