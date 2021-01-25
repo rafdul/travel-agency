@@ -53,39 +53,39 @@ describe('Component Trip', () => {
 
 
 
-const trueDate = Date;
-const mockDate = customDate => class extends Date {
-  constructor(...args) {
-    if(args.length){
-      super(...args);
-    } else {
-      super(customDate);
-    }
-    return this;
-  }
-  static now(){
-    return (new Date(customDate)).getTime();
-  }
-};
+// const trueDate = Date;
+// const mockDate = customDate => class extends Date {
+//   constructor(...args) {
+//     if(args.length){
+//       super(...args);
+//     } else {
+//       super(customDate);
+//     }
+//     return this;
+//   }
+//   static now(){
+//     return (new Date(customDate)).getTime();
+//   }
+// };
 
-const checkDescriptionAtTime = (time, expectedDescription) => {
-  it(`renders correct price for component Trip at ${time}`, () => {
-    global.Date = mockDate(`2019-05-14T${time}:59:59.135Z`);
+// const checkDescriptionAtTime = (time, expectedDescription) => {
+//   it(`renders correct price for component Trip at ${time}`, () => {
+//     global.Date = mockDate(`2019-05-14T${time}:59:59.135Z`);
 
-    const component = mount(<ListItem icon='money-bill-wave' title=''/>);
-    const renderedTime = component.text();
-    expect(renderedTime).toContain(expectedDescription);
+//     const component = mount(<ListItem icon='money-bill-wave' title=''/>);
+//     const renderedTime = component.text();
+//     expect(renderedTime).toContain(expectedDescription);
 
-    global.Date = trueDate;
-    console.log(component.debug());
-  });
-};
+//     global.Date = trueDate;
+//     console.log(component.debug());
+//   });
+// };
 
-describe('Component ListItem with mocked Hour', () => {
-  // const customDate = '2019-05-14T11:57:58.135Z';
+// describe('Component ListItem with mocked Hour', () => {
+//   // const customDate = '2019-05-14T11:57:58.135Z';
 
-  checkDescriptionAtTime('11', 'Standard price');
-  checkDescriptionAtTime('12', 'Happy-hour-price');
-  checkDescriptionAtTime('13', 'Standard price');
+//   checkDescriptionAtTime('11', 'Standard price');
+//   checkDescriptionAtTime('12', 'Happy-hour-price');
+//   checkDescriptionAtTime('13', 'Standard price');
 
-});
+// });

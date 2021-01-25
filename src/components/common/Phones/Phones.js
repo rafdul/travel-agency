@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Phones.scss';
 import PropTypes from 'prop-types';
+import settings from '../../../data/settings';
 
 const choosePhone = (number1, number2, number3, number4) => {
   let hourUTC = (new Date).getUTCHours();
@@ -17,7 +18,7 @@ const choosePhone = (number1, number2, number3, number4) => {
   }
 };
 
-const Phones = ({ phone1='678.243.8455', phone2='278.443.6443', phone3='167.280.3970', info='The Office opens at 8 UTC' }) => (
+const Phones = ({ phone1=settings.phone.nr1, phone2=settings.phone.nr2, phone3=settings.phone.nr3, info=settings.phone.info }) => (
 
   <span className={styles.component}>
     {choosePhone(phone1, phone2, phone3, info)}
