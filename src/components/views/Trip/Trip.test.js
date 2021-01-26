@@ -39,18 +39,16 @@ describe('Component Trip', () => {
   it('renders without crashing', () =>{
     const component = mount(<Trip {...mockProps}><ListItem id='price_promo'/></Trip>);
     expect(component.exists()).toBe(true);
-    console.log(component);
+    // console.log(component);
   });
-});
 
-describe('Component Trip', () => {
-  it('renders without crashing', () =>{
-    const component = mount(<Trip {...mockProps}><ListItem icon='money-bill-wave'/></Trip>);
-    expect(component.exists()).toBe(true);
-    console.log(component);
-  });
-});
+  // it('renders component TripList', () =>{
+  //   const component = mount(<Trip {...mockProps}></Trip>);
+  //   console.log(component.debug());
+  //   expect(component.find('TripPrice').length).toBe(1);
 
+  // });
+});
 
 
 // const trueDate = Date;

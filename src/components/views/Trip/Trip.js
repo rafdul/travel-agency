@@ -14,7 +14,8 @@ import OrderForm from '../../features/OrderForm/OrderFormContainer';
 
 import styles from './Trip.scss';
 import {Grid, Row, Col} from 'react-flexbox-grid';
-import { promoPrice } from '../../../utils/promoPrice';
+// import { promoPrice } from '../../../utils/promoPrice';
+import TripPrice from '../../features/TripPrice/TripPrice';
 
 const Trip = ({error, name, image, cost, days, description, country, intro, ...otherOptions}) => {
   if(error) return <NotFound />;
@@ -35,10 +36,10 @@ const Trip = ({error, name, image, cost, days, description, country, intro, ...o
               </div>
               <List variant='light'>
                 <ListItem title={`<strong>Duration:</strong> ${days} days`} icon='calendar-alt' />
-                <ListItem id='price_promo' title={(new Date).getUTCHours() === 12 ?
+                {/* <ListItem id='price_promo' title={(new Date).getUTCHours() === 12 ?
                   (`<strong>Happy-hour-price: from ${promoPrice(cost, 0.5)}</strong><div class=${styles.small}><small>Standard price: from ${cost}</small></div>`)
-                  : (`<strong>Standard price: from ${cost}</strong>`)} icon='money-bill-wave' />
-                {/* <ListItem id='price_standard' title={`<strong>Standard price:</strong> from ${cost}`} icon='money-bill-wave' /> */}
+                  : (`<strong>Standard price: from ${cost}</strong>`)} icon='money-bill-wave' /> */}
+                <TripPrice cost={cost} icon='money-bill-wave' />
               </List>
             </Col>
           </Row>

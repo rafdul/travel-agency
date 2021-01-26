@@ -53,44 +53,44 @@ describe('Component TripSummary', () => {
     expect(component.hasClass('.tags')).toBe(false);
   });
 
-  it('renders correct <span> with price', () => {
+  it('renders componen TripPrice', () => {
     const component = shallow(<TripSummmary tags={[]} id='' image='' name='' cost='' days={1}/>);
-    expect(component.find('.details span').at(1).length).toBe(1);
+    expect(component.find('TripPrice').length).toBe(1);
     console.log(component.debug());
   });
 });
 
-const trueDate = Date;
-const mockDate = customDate => class extends Date {
-  constructor(...args) {
-    if(args.length){
-      super(...args);
-    } else {
-      super(customDate);
-    }
-    return this;
-  }
-  static now(){
-    return (new Date(customDate)).getTime();
-  }
-};
+// const trueDate = Date;
+// const mockDate = customDate => class extends Date {
+//   constructor(...args) {
+//     if(args.length){
+//       super(...args);
+//     } else {
+//       super(customDate);
+//     }
+//     return this;
+//   }
+//   static now(){
+//     return (new Date(customDate)).getTime();
+//   }
+// };
 
-const checkDescriptionAtTime = (time, expectedDescription) => {
-  it(`should show correct price at ${time}`, () => {
-    global.Date = mockDate(`2019-05-14T${time}:59:59.135Z`);
+// const checkDescriptionAtTime = (time, expectedDescription) => {
+//   it(`should show correct price at ${time}`, () => {
+//     global.Date = mockDate(`2019-05-14T${time}:59:59.135Z`);
 
-    const component = shallow(<TripSummmary tags={[]} id='' image='' name='' cost='' days={1}/>);
-    const renderedTime = component.find('.details span').at(1).text();
-    expect(renderedTime).toContain(expectedDescription);
+//     const component = shallow(<TripSummmary tags={[]} id='' image='' name='' cost='' days={1}/>);
+//     const renderedTime = component.find('.details span').at(1).text();
+//     expect(renderedTime).toContain(expectedDescription);
 
-    global.Date = trueDate;
-    console.log(component.debug());
-  });
-};
+//     global.Date = trueDate;
+//     console.log(component.debug());
+//   });
+// };
 
-describe('Component TripSummary with mocked Hour', () => {
-  // const customDate = '2019-05-14T11:57:58.135Z';
+// describe('Component TripSummary with mocked Hour', () => {
+//   // const customDate = '2019-05-14T11:57:58.135Z';
 
-  checkDescriptionAtTime('11', 'Standard');
-  checkDescriptionAtTime('12', 'Special');
-});
+//   checkDescriptionAtTime('11', 'Standard');
+//   checkDescriptionAtTime('12', 'Special');
+// });
