@@ -1,6 +1,13 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import Phones from './Phones';
+import settings from '../../../data/settings';
+
+
+const phone1 = settings.phone.nr1;
+const phone2 = settings.phone.nr2;
+const phone3 = settings.phone.nr3;
+const info = settings.phone.info;
 
 describe('Component Phones', () => {
   it('should render correct', () => {
@@ -8,12 +15,11 @@ describe('Component Phones', () => {
     expect(component).toBeTruthy();
   });
 
-  /* test działał zanim wprowadziłem funkcję chooseNumber w Phones.js */
-  /*it('renders phone number from props', () => {
-    const component = shallow(<Phones phone='987 654 321'/>);
-    expect(component.text()).toEqual('987 654 321');
+  it('renders phone number ', () => {
+    const component = shallow(<Phones />);
+    expect(component.text()).toEqual(phone1);
     console.log(component.debug());
-  });*/
+  });
 });
 
 const trueDate = Date;
@@ -39,18 +45,18 @@ const checkDescriptionAtTime = (time, expectedDescription) => {
     expect(component.text()).toEqual(expectedDescription);
 
     global.Date = trueDate;
-    // console.log(component.debug());
+    console.log(component.debug());
   });
 };
 
 describe('Component TripSummary with mocked Hour', () => {
 
-  checkDescriptionAtTime('08', '678.243.8455');
-  checkDescriptionAtTime('11', '678.243.8455');
-  checkDescriptionAtTime('12', '278.443.6443');
-  checkDescriptionAtTime('15', '278.443.6443');
-  checkDescriptionAtTime('16', '167.280.3970');
-  checkDescriptionAtTime('21', '167.280.3970');
-  checkDescriptionAtTime('22', 'The Office opens at 8 UTC');
-  checkDescriptionAtTime('07', 'The Office opens at 8 UTC');
+  checkDescriptionAtTime('08', phone1);
+  checkDescriptionAtTime('11', phone1);
+  checkDescriptionAtTime('12', phone2);
+  checkDescriptionAtTime('15', phone2);
+  checkDescriptionAtTime('16', phone3);
+  checkDescriptionAtTime('21', phone3);
+  checkDescriptionAtTime('22', info);
+  checkDescriptionAtTime('07', info);
 });

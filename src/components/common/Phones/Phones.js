@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Phones.scss';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import settings from '../../../data/settings';
 
 const choosePhone = (number1, number2, number3, number4) => {
@@ -18,19 +18,17 @@ const choosePhone = (number1, number2, number3, number4) => {
   }
 };
 
-const Phones = ({ phone1=settings.phone.nr1, phone2=settings.phone.nr2, phone3=settings.phone.nr3, info=settings.phone.info }) => (
+const phone1 = settings.phone.nr1;
+const phone2 = settings.phone.nr2;
+const phone3 = settings.phone.nr3;
+const info = settings.phone.info;
+
+const Phones = () => (
 
   <span className={styles.component}>
     {choosePhone(phone1, phone2, phone3, info)}
   </span>
 
 );
-
-Phones.propTypes = {
-  phone1: PropTypes.string,
-  phone2: PropTypes.string,
-  phone3: PropTypes.string,
-  info: PropTypes.string,
-};
 
 export default Phones;
